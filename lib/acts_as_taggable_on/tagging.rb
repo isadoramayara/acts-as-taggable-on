@@ -20,10 +20,15 @@ module ActsAsTaggableOn
 
     validates_presence_of :context
     validates_presence_of :tag_id
+    validate :check_error
 
     validates_uniqueness_of :tag_id, scope: %i[taggable_type taggable_id context tagger_id tagger_type]
 
     after_destroy :remove_unused_tags
+
+    def check_error
+      false
+    end
 
     private
 
