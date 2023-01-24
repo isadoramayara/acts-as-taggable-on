@@ -27,6 +27,7 @@ module ActsAsTaggableOn
     after_destroy :remove_unused_tags
 
     def check_error
+      binding.pry
       false
     end
 
